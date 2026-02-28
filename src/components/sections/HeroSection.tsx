@@ -42,7 +42,7 @@ const HeroSection = () => {
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="https://github.com/YOUR_REPO_LINK" target="_blank" rel="noopener noreferrer" className="group px-8 py-3.5 rounded-full gradient-gold text-zomato-dark font-bold text-base hover:shadow-lg hover:shadow-zomato-gold/30 transition-all duration-300 flex items-center gap-2">
+          <a href="https://github.com/debdutta1777/zomato-insights-hub" target="_blank" rel="noopener noreferrer" className="group px-8 py-3.5 rounded-full gradient-gold text-zomato-dark font-bold text-base hover:shadow-lg hover:shadow-zomato-gold/30 transition-all duration-300 flex items-center gap-2">
             <Github className="w-4 h-4" />
             Our GitHub
           </a>
