@@ -92,6 +92,7 @@ const SummaryDonut = ({ data, label, value, subtitle, delay }: { data: any[]; la
 );
 
 const TOOLTIP_STYLE = { background: "#1C1C1C", border: "1px solid #444", borderRadius: 8, color: "#fff" };
+const TOOLTIP_PROPS = { contentStyle: TOOLTIP_STYLE, itemStyle: { color: "#fff" }, labelStyle: { color: "#fff" } } as const;
 
 const ChartsSection = () => {
   return (
@@ -136,7 +137,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="bin" stroke="#ccc" fontSize={13} />
                 <YAxis stroke="#ccc" fontSize={13} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Bar dataKey="baseline" name="Baseline" fill={COLORS.red} radius={[4, 4, 0, 0]} opacity={0.8} />
                 <Bar dataKey="optimized" name="Optimized" fill={COLORS.green} radius={[4, 4, 0, 0]} />
@@ -150,7 +151,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="hour" stroke="#ccc" fontSize={13} />
                 <YAxis stroke="#ccc" fontSize={13} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Line type="monotone" dataKey="baseline" name="Baseline" stroke={COLORS.red} strokeWidth={2.5} dot={false} />
                 <Line type="monotone" dataKey="optimized" name="Optimized" stroke={COLORS.green} strokeWidth={2.5} dot={false} />
@@ -164,7 +165,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis type="number" stroke="#ccc" fontSize={13} />
                 <YAxis dataKey="metric" type="category" stroke="#ccc" fontSize={13} width={80} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Bar dataKey="baseline" name="Baseline" fill={COLORS.red} radius={[0, 4, 4, 0]} barSize={30} />
                 <Bar dataKey="optimized" name="Optimized" fill={COLORS.green} radius={[0, 4, 4, 0]} barSize={30} />
@@ -178,7 +179,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="error" stroke="#ccc" fontSize={13} />
                 <YAxis stroke="#ccc" fontSize={13} domain={[0, 1]} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Area type="monotone" dataKey="baseline" name="Baseline" stroke={COLORS.red} fill={COLORS.red} fillOpacity={0.15} strokeWidth={2} />
                 <Area type="monotone" dataKey="optimized" name="Optimized" stroke={COLORS.green} fill={COLORS.green} fillOpacity={0.15} strokeWidth={2} />
@@ -192,7 +193,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="bin" stroke="#ccc" fontSize={13} label={{ value: "Error (min)", position: "bottom", fill: "#ccc" }} />
                 <YAxis stroke="#ccc" fontSize={13} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Bar dataKey="count" fill={COLORS.red} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -204,7 +205,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="bin" stroke="#ccc" fontSize={13} label={{ value: "Error (min)", position: "bottom", fill: "#ccc" }} />
                 <YAxis stroke="#ccc" fontSize={13} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Bar dataKey="count" fill={COLORS.green} radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -216,7 +217,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="bin" stroke="#ccc" fontSize={13} label={{ value: "Reduction (min)", position: "bottom", fill: "#ccc" }} />
                 <YAxis stroke="#ccc" fontSize={13} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <ReferenceLine x="4" stroke={COLORS.gold} strokeDasharray="5 5" label={{ value: "Mean", fill: COLORS.gold, position: "top" }} />
                 <Bar dataKey="count" fill={COLORS.gold} radius={[4, 4, 0, 0]} opacity={0.85} />
               </BarChart>
@@ -229,7 +230,7 @@ const ChartsSection = () => {
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis type="number" stroke="#ccc" fontSize={13} />
                 <YAxis dataKey="feature" type="category" stroke="#ccc" fontSize={12} width={120} />
-                <Tooltip contentStyle={TOOLTIP_STYLE} />
+                <Tooltip {...TOOLTIP_PROPS} />
                 <Bar dataKey="importance" name="Importance" radius={[0, 4, 4, 0]} barSize={24}>
                   {featureImportance.map((_, i) => (
                     <Cell key={i} fill={i < 2 ? COLORS.red : i < 4 ? COLORS.gold : COLORS.lightRed} />
@@ -247,7 +248,7 @@ const ChartsSection = () => {
                   <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                   <XAxis dataKey="trueKpt" name="True KPT" stroke="#ccc" fontSize={12} type="number" domain={[0, 16]} ticks={[0, 2, 4, 6, 8, 10, 12, 14, 16]} tickFormatter={(v: number) => `${v}`} label={{ value: "True KPT (min)", position: "insideBottom", offset: -15, fill: "#ccc", fontSize: 13, fontWeight: 600 }} />
                   <YAxis dataKey="rlri" name="RLRI" stroke="#ccc" fontSize={12} type="number" domain={[0, 22]} ticks={[0, 5, 10, 15, 20]} tickFormatter={(v: number) => `${v}`} label={{ value: "RLRI (min)", angle: -90, position: "insideLeft", fill: "#ccc", fontSize: 13, fontWeight: 600 }} />
-                  <Tooltip contentStyle={{ ...TOOLTIP_STYLE, fontSize: 13 }} itemStyle={{ color: "#fff" }} labelStyle={{ color: "#fff" }} cursor={{ strokeDasharray: "3 3" }} formatter={(value: number) => value.toFixed(1)} />
+                  <Tooltip {...TOOLTIP_PROPS} cursor={{ strokeDasharray: "3 3" }} formatter={(value: number) => value.toFixed(1)} />
                   <ReferenceLine segment={[{ x: 0, y: 0 }, { x: 16, y: 16 }]} stroke={COLORS.gold} strokeDasharray="5 5" />
                   <Scatter data={rlriVsKpt} name="Orders">
                     {rlriVsKpt.map((entry, i) => (
