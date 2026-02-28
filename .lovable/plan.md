@@ -1,50 +1,59 @@
 
 
-# Zomathon Demo Website - Rider Wait Time Optimization
+# UI/UX Overhaul Plan
 
-## Overview
-A polished, interactive demo website showcasing your hackathon research on optimizing rider wait times. Themed with Zomato's brand colors (red, white, black, gold accents).
+## 1. Hero Section — Food Background Image
+- Use AI image generation to create a dark, atmospheric food/cuisine image (or use a food emoji/SVG pattern overlay)
+- Actually simpler: add floating food emoji elements (🍕🍔🍜🥟🍛) as animated particles in the hero background using framer-motion
+- Keep the dark gradient but add subtle food imagery as decorative floating elements
 
-## Design Theme
-- **Primary**: Zomato red (#E23744), **Accent**: Gold (#D4A853), **Dark sections**: Near-black (#1C1C1C), **Light sections**: White/off-white
-- Modern glassmorphism cards, smooth scroll animations, gradient backgrounds
-- Clean typography with bold headlines and clear data presentation
+## 2. Floating Particles Component
+- Create `src/components/FloatingParticles.tsx` — animated food emojis floating across sections
+- Use framer-motion for smooth drift animations with random positions, speeds, and sizes
+- Reuse across hero and other sections for cohesion
 
-## Pages & Sections (Single-page scrollable)
+## 3. Problem Section — Visual Upgrade
+- Change from plain white `bg-background` to a warm gradient background (subtle red-to-cream)
+- Add glassmorphism cards with colored left borders and hover lift effects
+- Add animated icon backgrounds with glow
+- Make the baseline→optimized comparison more dramatic with animated arrow and color contrast
 
-### 1. Hero Section
-- Bold headline: "Optimizing Rider Wait Times at Scale"
-- Team name, Zomathon branding
-- Key stat callouts: **79.25% reduction** in avg wait, **1.30 min** optimized wait
-- Animated scroll-down indicator
+## 4. Methodology Section — Visual Upgrade
+- Switch from white to a dark section (`section-dark`) for visual contrast
+- Cards get glassmorphism dark styling with colored accent borders
+- Add subtle particle overlay
+- Colored icon circles per card
 
-### 2. Performance Summary
-- Three animated metric cards showing Baseline → Optimized with improvement percentages (Avg Wait, P50 Error, P90 Error)
-- Counters that animate on scroll
+## 5. Timeline — Curved SVG Path with Food Icons
+- Replace the straight vertical line with a curved SVG path
+- Replace lucide icons with food emojis: 🍕 Pizza, 🍔 Burger, 🥟 Dumplings, 🍜 Noodles, 🍛 Curry, 🌮 Taco, 🍰 Cake, 🍣 Sushi, 🎯 Target
+- Each step gets a unique food icon in the circle node
+- Add a warm gradient background instead of plain light
 
-### 3. Interactive Charts (using Recharts)
-- **Rider Wait Time Distribution**: Overlapping bar chart (Baseline red vs Optimized green)
-- **Hourly Average Wait Time**: Line chart with dual series, tooltips
-- **ETA Error Percentiles**: Bar chart comparing P50/P90
-- **CDF of ETA Error**: Smooth line chart with both curves
-- **ETA Error Histograms**: Side-by-side bar charts
-- **Wait Time Reduction Distribution**: Histogram with mean line annotation
-- **Feature Importance**: Horizontal bar chart
-- **RLRI vs True KPT**: Scatter chart with color encoding
+## 6. "Explore All Results" Button — Centered After Timeline
+- Move the gold CTA button out of the TakeawaysSection
+- Place it as a standalone centered element right after the TimelineSection in Index.tsx
+- Or restructure: add a centered CTA block between Timeline and Takeaways
 
-### 4. Methodology Section
-- Brief explanation of the correction model approach
-- Key features used (base_kpt, prev_noisy_kpt, etc.)
+## 7. Section Backgrounds — Add Color
+- Problem: warm cream/rose gradient
+- Methodology: dark section with subtle red glow
+- Timeline: warm gold-tinted gradient
+- Takeaways: dark section
+- Alternate dark/light for visual rhythm
 
-### 5. Key Takeaways
-- Summary cards with icons highlighting main findings
+## 8. Global Animation Additions
+- Add CSS keyframes for `float`, `drift`, `sparkle` in tailwind config
+- Food particle animations throughout
 
-### 6. Footer
-- Team info, hackathon credit
-
-## Technical Approach
-- All charts recreated as interactive Recharts components with real data from your results
-- Scroll-triggered animations for visual impact
-- Fully responsive layout
-- Zomato-inspired color scheme throughout
+## Files to modify:
+1. **New**: `src/components/FloatingParticles.tsx` — reusable floating food particles
+2. **Edit**: `src/components/sections/HeroSection.tsx` — add food particles overlay
+3. **Edit**: `src/components/sections/ProblemSection.tsx` — gradient bg, glassmorphism cards, glow effects
+4. **Edit**: `src/components/sections/MethodologySection.tsx` — dark section, glass cards, accent colors
+5. **Edit**: `src/components/sections/TimelineSection.tsx` — curved SVG path, food emoji icons, warm bg
+6. **Edit**: `src/components/sections/TakeawaysSection.tsx` — dark bg, centered gold CTA
+7. **Edit**: `src/pages/Index.tsx` — add centered "Explore All Results" CTA between timeline and takeaways
+8. **Edit**: `src/index.css` — new utility classes for section gradients
+9. **Edit**: `tailwind.config.ts` — float/drift keyframes
 
