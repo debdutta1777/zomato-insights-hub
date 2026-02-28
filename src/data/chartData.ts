@@ -122,7 +122,7 @@ export const rlriVsKpt = Array.from({ length: 100 }, (_, i) => {
 
 // Performance metrics
 export const performanceMetrics = {
-  avgWait: { baseline: 6.27, optimized: 1.30, reduction: 79.25 },
-  p50Error: { baseline: 3.20, optimized: 0.80, reduction: 75.0 },
-  p90Error: { baseline: 8.50, optimized: 2.10, reduction: 75.3 },
+  avgWait: { baseline: 6.28, optimized: 1.30, reduction: 79.25 },
+  p50Error: { baseline: 4.35, optimized: 2.37, reduction: 45.53 },
+  p90Error: { baseline: 10.45, optimized: 6.26, reduction: 40.08 },
 };
