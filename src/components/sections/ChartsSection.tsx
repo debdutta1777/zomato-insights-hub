@@ -1,4 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { motion } from "framer-motion";
+import FloatingParticles from "@/components/FloatingParticles";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   LineChart, Line, AreaChart, Area, ScatterChart, Scatter, Cell, ReferenceLine,
@@ -33,7 +35,8 @@ const ChartCard = ({ title, subtitle, children }: { title: string; subtitle?: st
 
 const ChartsSection = () => {
   return (
-    <section className="py-24 px-6 section-dark">
+    <section className="relative py-24 px-6 section-dark overflow-hidden">
+      <FloatingParticles count={15} dark />
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-zomato-gold/20 text-zomato-gold text-sm font-semibold mb-4">
@@ -47,7 +50,7 @@ const ChartsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* 1. Wait Time Distribution */}
           <ChartCard title="Rider Wait Time Distribution" subtitle="Baseline vs Optimized (minutes)">
             <ResponsiveContainer>
@@ -79,7 +82,7 @@ const ChartsSection = () => {
           </ChartCard>
 
           {/* 3. ETA Error Percentiles */}
-          <ChartCard title="ETA Error Percentiles" subtitle="P50 and P90 comparison">
+          <ChartCard title="ETA Error Percentiles" subtitle="Average and Maximum wait time comparison">
             <ResponsiveContainer>
               <BarChart data={etaErrorPercentiles} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke="#333" />

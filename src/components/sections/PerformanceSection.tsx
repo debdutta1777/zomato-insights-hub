@@ -2,6 +2,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { performanceMetrics } from "@/data/chartData";
 import { TrendingDown, Target, Zap } from "lucide-react";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const metrics = [
   {
@@ -14,7 +15,7 @@ const metrics = [
   },
   {
     icon: Target,
-    label: "P50 Error",
+    label: "Avg Wait Time Error",
     baseline: performanceMetrics.p50Error.baseline,
     optimized: performanceMetrics.p50Error.optimized,
     reduction: performanceMetrics.p50Error.reduction,
@@ -22,7 +23,7 @@ const metrics = [
   },
   {
     icon: Zap,
-    label: "P90 Error",
+    label: "Max Wait Time Error",
     baseline: performanceMetrics.p90Error.baseline,
     optimized: performanceMetrics.p90Error.optimized,
     reduction: performanceMetrics.p90Error.reduction,
@@ -83,7 +84,8 @@ const PerformanceSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 px-6 bg-zomato-light" ref={ref}>
+    <section className="relative py-24 px-6 section-warm overflow-hidden" ref={ref}>
+      <FloatingParticles count={10} dark={false} />
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-zomato-red/10 text-zomato-red text-sm font-semibold mb-4">
