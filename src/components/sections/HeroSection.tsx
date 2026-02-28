@@ -18,14 +18,8 @@ const HeroSection = () => {
             "radial-gradient(circle at 20% 30%, hsl(355, 78%, 56% / 0.5) 0%, transparent 40%), radial-gradient(circle at 80% 70%, hsl(40, 52%, 58% / 0.3) 0%, transparent 40%)",
         }}
       />
-      {/* Decorative grid */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
+
+
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="mb-6">
