@@ -3,6 +3,7 @@ import PerformanceSection from "@/components/sections/PerformanceSection";
 import ChartsSection from "@/components/sections/ChartsSection";
 import FooterSection from "@/components/sections/FooterSection";
 import FloatingParticles from "@/components/FloatingParticles";
+import { ExternalLink } from "lucide-react";
 
 const Results = () => {
   return (
@@ -12,7 +13,6 @@ const Results = () => {
         {/* Results hero */}
         <section className="relative py-20 px-6 section-dark overflow-hidden">
           <FloatingParticles count={12} dark />
-          {/* Radial glow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[600px] h-[400px] opacity-15" style={{ background: 'radial-gradient(ellipse, hsl(355, 78%, 56%), transparent 70%)' }} />
           </div>
@@ -24,9 +24,18 @@ const Results = () => {
             <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-4">
               Our Findings
             </h1>
-            <p className="text-white/60 text-lg max-w-xl mx-auto">
+            <p className="text-white/60 text-lg max-w-xl mx-auto mb-6">
               Interactive visualizations and performance metrics from our optimization model
             </p>
+            <a
+              href="https://colab.research.google.com/drive/1zfzfIIslQnuB0_TxdpjageekwzUO26TO?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-zomato-red text-white font-semibold hover:bg-zomato-red/90 transition-colors shadow-lg shadow-zomato-red/25"
+            >
+              <ExternalLink className="w-4 h-4" />
+              View Full Notebook on Colab
+            </a>
           </div>
         </section>
         <PerformanceSection />
