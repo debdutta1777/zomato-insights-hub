@@ -1,25 +1,27 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
-import { Database, Settings, Eraser, BarChart3, Zap, Wrench, Truck, Timer, Target } from "lucide-react";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const steps = [
-  { icon: Database, title: "Dataset Simulation", desc: "Generated 15,000 orders with realistic restaurant biases.", color: "text-zomato-red", border: "border-zomato-red" },
-  { icon: Eraser, title: "Data Cleaning", desc: "Removed invalid timestamps, types, dropped NaNs.", color: "text-pink-500", border: "border-pink-500" },
-  { icon: Settings, title: "Feature Engineering", desc: "Time features, cyclical encoding, rolling stats. No leakage.", color: "text-blue-500", border: "border-blue-500" },
-  { icon: BarChart3, title: "Baseline Model", desc: "LightGBM predicts noisy KPT using basic features.", color: "text-orange-500", border: "border-orange-500" },
-  { icon: Zap, title: "RLRI (Rush Index)", desc: "Index captures kitchen congestion in real time.", color: "text-green-500", border: "border-green-500" },
-  { icon: Wrench, title: "Error Correction", desc: "Second model predicts error using RLRI & lag features.", color: "text-yellow-500", border: "border-yellow-500" },
-  { icon: Truck, title: "Dispatch Simulation", desc: "Rider sent directly when food is ready. Zero wait.", color: "text-red-500", border: "border-red-500" },
-  { icon: Timer, title: "Wait Reduction", desc: "Average wait drops from 6.28 to 1.30 minutes.", color: "text-purple-500", border: "border-purple-500" },
-  { icon: Target, title: "Final Impact", desc: "P50 error drops 45.5%. Production model ready.", color: "text-teal-500", border: "border-teal-500" },
+  { emoji: "🍕", title: "Dataset Simulation", desc: "Generated 15,000 orders with realistic restaurant biases.", color: "text-zomato-red" },
+  { emoji: "🍔", title: "Data Cleaning", desc: "Removed invalid timestamps, types, dropped NaNs.", color: "text-pink-500" },
+  { emoji: "🥟", title: "Feature Engineering", desc: "Time features, cyclical encoding, rolling stats. No leakage.", color: "text-blue-500" },
+  { emoji: "🍜", title: "Baseline Model", desc: "LightGBM predicts noisy KPT using basic features.", color: "text-orange-500" },
+  { emoji: "🍛", title: "RLRI (Rush Index)", desc: "Index captures kitchen congestion in real time.", color: "text-zomato-green" },
+  { emoji: "🌮", title: "Error Correction", desc: "Second model predicts error using RLRI & lag features.", color: "text-yellow-500" },
+  { emoji: "🍰", title: "Dispatch Simulation", desc: "Rider sent directly when food is ready. Zero wait.", color: "text-zomato-red" },
+  { emoji: "🍣", title: "Wait Reduction", desc: "Average wait drops from 6.28 to 1.30 minutes.", color: "text-purple-500" },
+  { emoji: "🎯", title: "Final Impact", desc: "P50 error drops 45.5%. Production model ready.", color: "text-teal-500" },
 ];
 
 const TimelineSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.05);
 
   return (
-    <section id="timeline" className="py-24 px-6 bg-zomato-light" ref={ref}>
-      <div className="max-w-5xl mx-auto">
+    <section id="timeline" className="relative py-24 px-6 section-warm-gold overflow-hidden" ref={ref}>
+      <FloatingParticles count={8} dark={false} />
+
+      <div className="relative z-10 max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-zomato-red/10 text-zomato-red text-sm font-semibold mb-4">
             Pipeline
@@ -33,8 +35,22 @@ const TimelineSection = () => {
         </div>
 
         <div className={`relative transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-px" />
+          {/* Curved SVG path */}
+          <svg
+            className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 h-full w-16 md:w-24"
+            viewBox="0 0 80 1000"
+            preserveAspectRatio="none"
+            fill="none"
+            style={{ height: '100%' }}
+          >
+            <path
+              d="M40 0 C60 50, 20 100, 40 150 C60 200, 20 250, 40 300 C60 350, 20 400, 40 450 C60 500, 20 550, 40 600 C60 650, 20 700, 40 750 C60 800, 20 850, 40 900 C60 950, 40 1000, 40 1000"
+              stroke="hsl(355, 78%, 56%)"
+              strokeWidth="2"
+              strokeOpacity="0.3"
+              strokeDasharray="8 4"
+            />
+          </svg>
 
           {steps.map((step, i) => {
             const isLeft = i % 2 === 0;
@@ -51,12 +67,10 @@ const TimelineSection = () => {
               >
                 {/* Content card */}
                 <div className={`flex-1 ${isLeft ? "md:text-right md:pr-12" : "md:text-left md:pl-12"} pl-14 md:pl-0`}>
-                  <div className={`inline-block px-3 py-0.5 rounded-full text-xs font-bold mb-2 ${step.color} bg-current/10`}
-                    style={{ backgroundColor: 'transparent' }}
-                  >
+                  <div className={`inline-block px-3 py-0.5 rounded-full text-xs font-bold mb-2`}>
                     <span className={step.color}>STEP {String(i + 1).padStart(2, '0')}</span>
                   </div>
-                  <h3 className={`font-display font-bold text-xl text-foreground mb-1 ${step.color.replace('text-', 'decoration-')}`}>
+                  <h3 className="font-display font-bold text-xl text-foreground mb-1">
                     <span className={step.color}>{step.title}</span>
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed max-w-sm inline-block">
@@ -64,9 +78,9 @@ const TimelineSection = () => {
                   </p>
                 </div>
 
-                {/* Circle node */}
-                <div className={`absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2 ${step.border} bg-background flex items-center justify-center shadow-md z-10`}>
-                  <step.icon className={`w-5 h-5 ${step.color}`} />
+                {/* Food emoji circle node */}
+                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full border-2 border-zomato-red/30 bg-background flex items-center justify-center shadow-lg z-10">
+                  <span className="text-xl">{step.emoji}</span>
                 </div>
 
                 {/* Spacer for other side */}
