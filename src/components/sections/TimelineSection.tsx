@@ -1,6 +1,7 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { motion } from "framer-motion";
 import FloatingParticles from "@/components/FloatingParticles";
+import zomatoRider from "@/assets/zomato-rider.png";
 
 const steps = [
   { emoji: "🍕", title: "Dataset Simulation", desc: "Generated 15,000 orders with realistic restaurant biases.", color: "text-zomato-red", ringColor: "border-zomato-red/50", pillBg: "bg-zomato-red/10 text-zomato-red" },
@@ -56,15 +57,15 @@ const TimelineSection = () => {
               strokeOpacity="0.35"
               strokeDasharray="8 4"
             />
-            {/* Bike rider emoji along path */}
+            {/* Zomato rider along path */}
             <g>
               <animateMotion
-                dur="6s"
+                dur="14s"
                 repeatCount="indefinite"
                 path="M40 0 C60 50, 20 100, 40 150 C60 200, 20 250, 40 300 C60 350, 20 400, 40 450 C60 500, 20 550, 40 600 C60 650, 20 700, 40 750 C60 800, 20 850, 40 900 C60 950, 40 1000, 40 1000"
               />
-              <foreignObject width="36" height="36" x="-18" y="-18">
-                <div style={{ fontSize: '28px', lineHeight: '36px', textAlign: 'center' }}>🏍️</div>
+              <foreignObject width="56" height="56" x="-28" y="-28">
+                <img src={zomatoRider} alt="Zomato delivery rider" style={{ width: '56px', height: '56px', objectFit: 'contain' }} />
               </foreignObject>
             </g>
           </svg>
