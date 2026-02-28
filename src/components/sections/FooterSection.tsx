@@ -1,6 +1,9 @@
 const FooterSection = () => {
   return (
-    <footer className="py-12 px-6 section-dark border-t border-white/5">
+    <footer className="relative py-12 px-6 section-dark overflow-hidden">
+      {/* Gradient top border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zomato-red/50 to-transparent" />
+
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
