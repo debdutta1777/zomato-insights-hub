@@ -1,17 +1,26 @@
 
 
-## Changes
+## Plan
 
-### 1. Reduce gap between Timeline and "Explore All Results" button
-- In `src/pages/Index.tsx`: Change the CTA section padding from `py-16` to `py-6` or `py-8` to bring it closer to the timeline
-- In `src/components/sections/TimelineSection.tsx`: Reduce bottom padding from `py-28` to `py-20 pb-8` so the last step is closer to the CTA
+### 1. Fix donut text visibility & styling
+- In `ChartsSection.tsx`: Make the SummaryDonut cards have a dark background with visible white text, increase donut size, make percentage text larger and bolder
 
-### 2. Replace moving dot with bike rider emoji animation
-- In `src/components/sections/TimelineSection.tsx`: Replace the `<circle>` SVG element with an SVG `<text>` element containing a 🏍️ (motorcycle/bike rider) emoji
-- Keep the same `<animateMotion>` so it rides along the curved path
-- Increase size slightly for visibility
+### 2. Change chart layout to single-column centered
+- Remove the `grid grid-cols-1 lg:grid-cols-2` layout
+- Replace with a single-column layout (`max-w-4xl mx-auto flex flex-col gap-12`)
+- Each chart gets its own full-width row, center-aligned
+
+### 3. Move insight text outside charts
+- Restructure `ChartCard` so the insight/description text appears as a separate block below/beside the chart card (not inside the chart area)
+- Add a short analytical paragraph for each chart explaining the significance of the data
+
+### 4. Make RLRI vs True KPT chart smaller
+- Reduce container to `max-w-xl` and chart height to `h-[280px]`
+
+### 5. Add Colab link button to Results hero
+- In `Results.tsx`: Add a button/link in the hero section pointing to the Colab notebook URL with an external link icon
 
 ### Files to modify:
-1. `src/pages/Index.tsx` — reduce CTA section padding
-2. `src/components/sections/TimelineSection.tsx` — reduce bottom padding, replace dot with bike rider emoji
+1. `src/components/sections/ChartsSection.tsx` — donut fix, single-column layout, insight text outside charts, smaller scatter chart
+2. `src/pages/Results.tsx` — add Colab button in hero
 
