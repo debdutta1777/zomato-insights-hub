@@ -54,8 +54,8 @@ const HeroSection = () => {
 
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.6 }} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden max-w-3xl mx-auto">
           {[
-            { value: `${performanceMetrics.avgWait.reduction}%`, label: "WAIT REDUCTION" },
-            { value: `${performanceMetrics.p50Error.reduction}%`, label: "P50 WAIT IMPROVED" },
+            { value: `${performanceMetrics.p50Error.reduction}%`, label: "AVG WAIT TIME IMPROVED" },
+            { value: `${performanceMetrics.p90Error.reduction}%`, label: "MAX WAIT TIME IMPROVED" },
             { value: "15K+", label: "ORDERS SIMULATED" },
           ].map((stat, i) => (
             <div key={i} className="bg-white/5 backdrop-blur-sm px-8 py-6 text-center">
