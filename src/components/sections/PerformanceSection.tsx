@@ -17,7 +17,7 @@ const metrics = [
   },
   {
     icon: Target,
-    label: "Avg Wait Time Error",
+    label: "Avg Wait Time",
     baseline: performanceMetrics.p50Error.baseline,
     optimized: performanceMetrics.p50Error.optimized,
     reduction: performanceMetrics.p50Error.reduction,
@@ -26,7 +26,7 @@ const metrics = [
   },
   {
     icon: Zap,
-    label: "Max Wait Time Error",
+    label: "Max Wait Time",
     baseline: performanceMetrics.p90Error.baseline,
     optimized: performanceMetrics.p90Error.optimized,
     reduction: performanceMetrics.p90Error.reduction,
