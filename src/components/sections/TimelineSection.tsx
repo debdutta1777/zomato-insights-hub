@@ -18,7 +18,7 @@ const TimelineSection = () => {
   const { ref, isVisible } = useScrollAnimation(0.05);
 
   return (
-    <section id="timeline" className="relative py-28 px-6 section-warm-gold overflow-hidden" ref={ref}>
+    <section id="timeline" className="relative pt-20 pb-8 px-6 section-warm-gold overflow-hidden" ref={ref}>
       <FloatingParticles count={8} dark={false} />
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -56,14 +56,15 @@ const TimelineSection = () => {
               strokeOpacity="0.35"
               strokeDasharray="8 4"
             />
-            {/* Pulsing dot along path */}
-            <circle r="4" fill="hsl(355, 78%, 56%)" opacity="0.8">
+            {/* Bike rider emoji along path */}
+            <text fontSize="20" dominantBaseline="central" textAnchor="middle">
+              🏍️
               <animateMotion
                 dur="6s"
                 repeatCount="indefinite"
                 path="M40 0 C60 50, 20 100, 40 150 C60 200, 20 250, 40 300 C60 350, 20 400, 40 450 C60 500, 20 550, 40 600 C60 650, 20 700, 40 750 C60 800, 20 850, 40 900 C60 950, 40 1000, 40 1000"
               />
-            </circle>
+            </text>
           </svg>
 
           {steps.map((step, i) => {
