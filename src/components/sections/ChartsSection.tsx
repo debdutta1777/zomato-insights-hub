@@ -133,11 +133,11 @@ const ChartsSection = () => {
           <ChartCard title="Rider Wait Time Distribution" subtitle="Baseline vs Optimized (minutes)" insight="Optimized model shifts 80% of orders to <2 min wait" analysis="The distribution clearly shows a leftward shift after optimization — the majority of rider wait times are compressed into the 0–2 minute range, eliminating the long tail of 5–10 minute waits that plagued the baseline system." index={0}>
             <ResponsiveContainer>
               <BarChart data={waitTimeDistribution}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="bin" stroke="#888" fontSize={12} />
-                <YAxis stroke="#888" fontSize={12} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="bin" stroke="#ccc" fontSize={13} />
+                <YAxis stroke="#ccc" fontSize={13} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend />
+                <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Bar dataKey="baseline" name="Baseline" fill={COLORS.red} radius={[4, 4, 0, 0]} opacity={0.8} />
                 <Bar dataKey="optimized" name="Optimized" fill={COLORS.green} radius={[4, 4, 0, 0]} />
               </BarChart>
@@ -147,11 +147,11 @@ const ChartsSection = () => {
           <ChartCard title="Hourly Average Wait Time" subtitle="24-hour pattern comparison" insight="Peak hours (12–14, 19–20) show highest improvement" analysis="During lunch (12–14h) and dinner (19–20h) rush, baseline wait times spike to 7–8 minutes. Our optimized model keeps wait times consistently below 1.6 minutes even during peak demand, demonstrating robustness under high load." index={1}>
             <ResponsiveContainer>
               <LineChart data={hourlyWaitTime}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="hour" stroke="#888" fontSize={12} />
-                <YAxis stroke="#888" fontSize={12} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="hour" stroke="#ccc" fontSize={13} />
+                <YAxis stroke="#ccc" fontSize={13} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend />
+                <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Line type="monotone" dataKey="baseline" name="Baseline" stroke={COLORS.red} strokeWidth={2.5} dot={false} />
                 <Line type="monotone" dataKey="optimized" name="Optimized" stroke={COLORS.green} strokeWidth={2.5} dot={false} />
               </LineChart>
@@ -161,11 +161,11 @@ const ChartsSection = () => {
           <ChartCard title="ETA Error Percentiles" subtitle="Average and Maximum wait time comparison" insight="Maximum wait time error reduced from 8.5 to 2.1 min" analysis="Both average and maximum ETA errors see dramatic reductions. The max error dropping from 8.5 to 2.1 minutes is critical — it means even worst-case predictions are now actionable for dispatchers." index={2}>
             <ResponsiveContainer>
               <BarChart data={etaErrorPercentiles} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis type="number" stroke="#888" fontSize={12} />
-                <YAxis dataKey="metric" type="category" stroke="#888" fontSize={12} width={80} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis type="number" stroke="#ccc" fontSize={13} />
+                <YAxis dataKey="metric" type="category" stroke="#ccc" fontSize={13} width={80} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend />
+                <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Bar dataKey="baseline" name="Baseline" fill={COLORS.red} radius={[0, 4, 4, 0]} barSize={30} />
                 <Bar dataKey="optimized" name="Optimized" fill={COLORS.green} radius={[0, 4, 4, 0]} barSize={30} />
               </BarChart>
@@ -175,11 +175,11 @@ const ChartsSection = () => {
           <ChartCard title="CDF of ETA Error" subtitle="Cumulative distribution function" insight="90% of optimized orders have <3 min error vs ~8 min baseline" analysis="The CDF shows the optimized model reaches 90% cumulative probability at ~3 minutes of error, whereas the baseline needs ~8 minutes. This steep curve indicates high prediction confidence and reliability." index={3}>
             <ResponsiveContainer>
               <AreaChart data={cdfEtaError}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="error" stroke="#888" fontSize={12} />
-                <YAxis stroke="#888" fontSize={12} domain={[0, 1]} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="error" stroke="#ccc" fontSize={13} />
+                <YAxis stroke="#ccc" fontSize={13} domain={[0, 1]} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
-                <Legend />
+                <Legend wrapperStyle={{ color: '#ccc' }} />
                 <Area type="monotone" dataKey="baseline" name="Baseline" stroke={COLORS.red} fill={COLORS.red} fillOpacity={0.15} strokeWidth={2} />
                 <Area type="monotone" dataKey="optimized" name="Optimized" stroke={COLORS.green} fill={COLORS.green} fillOpacity={0.15} strokeWidth={2} />
               </AreaChart>
@@ -189,9 +189,9 @@ const ChartsSection = () => {
           <ChartCard title="ETA Error Distribution — Baseline" subtitle="Error spread before optimization" insight="Wide spread: errors range from -8 to +10 min" analysis="Before optimization, ETA errors are spread across a wide range (-8 to +10 minutes), indicating unreliable predictions that cause both early and late rider arrivals." index={4}>
             <ResponsiveContainer>
               <BarChart data={etaErrorBaseline}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="bin" stroke="#888" fontSize={12} label={{ value: "Error (min)", position: "bottom", fill: "#888" }} />
-                <YAxis stroke="#888" fontSize={12} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="bin" stroke="#ccc" fontSize={13} label={{ value: "Error (min)", position: "bottom", fill: "#ccc" }} />
+                <YAxis stroke="#ccc" fontSize={13} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Bar dataKey="count" fill={COLORS.red} radius={[4, 4, 0, 0]} />
               </BarChart>
@@ -201,9 +201,9 @@ const ChartsSection = () => {
           <ChartCard title="ETA Error Distribution — Optimized" subtitle="Tighter error distribution after optimization" insight="Errors tightly centered around 0 with ±2 min range" analysis="Post-optimization, the error distribution becomes sharply peaked around zero with a ±2 minute range — the model's predictions closely match actual kitchen prep times, enabling precise rider dispatch." index={5}>
             <ResponsiveContainer>
               <BarChart data={etaErrorOptimized}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="bin" stroke="#888" fontSize={12} label={{ value: "Error (min)", position: "bottom", fill: "#888" }} />
-                <YAxis stroke="#888" fontSize={12} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="bin" stroke="#ccc" fontSize={13} label={{ value: "Error (min)", position: "bottom", fill: "#ccc" }} />
+                <YAxis stroke="#ccc" fontSize={13} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Bar dataKey="count" fill={COLORS.green} radius={[4, 4, 0, 0]} />
               </BarChart>
@@ -213,9 +213,9 @@ const ChartsSection = () => {
           <ChartCard title="Wait Time Reduction Distribution" subtitle="Distribution of per-order improvements" insight="Mean reduction of ~4 min per order, 95% of orders improved" analysis="Nearly all orders benefit from the optimization. The distribution peaks at 3–4 minute reductions, with a mean of ~4 minutes saved per order. Only 5% of orders show no improvement or marginal degradation." index={6}>
             <ResponsiveContainer>
               <BarChart data={waitTimeReduction}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="bin" stroke="#888" fontSize={12} label={{ value: "Reduction (min)", position: "bottom", fill: "#888" }} />
-                <YAxis stroke="#888" fontSize={12} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="bin" stroke="#ccc" fontSize={13} label={{ value: "Reduction (min)", position: "bottom", fill: "#ccc" }} />
+                <YAxis stroke="#ccc" fontSize={13} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <ReferenceLine x="4" stroke={COLORS.gold} strokeDasharray="5 5" label={{ value: "Mean", fill: COLORS.gold, position: "top" }} />
                 <Bar dataKey="count" fill={COLORS.gold} radius={[4, 4, 0, 0]} opacity={0.85} />
@@ -226,9 +226,9 @@ const ChartsSection = () => {
           <ChartCard title="Feature Importance" subtitle="Key drivers of the correction model" insight="base_kpt and prev_noisy_kpt account for 57% of model signal" analysis="The top two features — base kitchen prep time and previous noisy KPT — together explain 57% of model variance. Time-based features (hour, day) add contextual awareness, while distance and weather provide marginal but meaningful corrections." index={7}>
             <ResponsiveContainer>
               <BarChart data={featureImportance} layout="vertical">
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis type="number" stroke="#888" fontSize={12} />
-                <YAxis dataKey="feature" type="category" stroke="#888" fontSize={11} width={120} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis type="number" stroke="#ccc" fontSize={13} />
+                <YAxis dataKey="feature" type="category" stroke="#ccc" fontSize={12} width={120} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Bar dataKey="importance" name="Importance" radius={[0, 4, 4, 0]} barSize={24}>
                   {featureImportance.map((_, i) => (
@@ -244,7 +244,7 @@ const ChartsSection = () => {
             <ChartCard title="RLRI vs True KPT" subtitle="Predicted vs actual kitchen prep times" insight="Strong positive correlation validates RLRI as a reliable signal" analysis="Points cluster tightly around the diagonal (y=x), confirming that RLRI predictions closely match true kitchen prep times. Green points (error <2 min) dominate, validating the model's accuracy." index={8}>
               <ResponsiveContainer width="100%" height={280}>
                 <ScatterChart margin={{ bottom: 25, left: 15, right: 15, top: 10 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                   <XAxis dataKey="trueKpt" name="True KPT" stroke="#ccc" fontSize={12} type="number" domain={[0, 16]} ticks={[0, 2, 4, 6, 8, 10, 12, 14, 16]} tickFormatter={(v: number) => `${v}`} label={{ value: "True KPT (min)", position: "insideBottom", offset: -15, fill: "#ccc", fontSize: 13, fontWeight: 600 }} />
                   <YAxis dataKey="rlri" name="RLRI" stroke="#ccc" fontSize={12} type="number" domain={[0, 22]} ticks={[0, 5, 10, 15, 20]} tickFormatter={(v: number) => `${v}`} label={{ value: "RLRI (min)", angle: -90, position: "insideLeft", fill: "#ccc", fontSize: 13, fontWeight: 600 }} />
                   <Tooltip contentStyle={{ ...TOOLTIP_STYLE, fontSize: 13 }} cursor={{ strokeDasharray: "3 3" }} formatter={(value: number) => value.toFixed(1)} />
