@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { performanceMetrics } from "@/data/chartData";
+import FloatingParticles from "@/components/FloatingParticles";
 
 const HeroSection = () => {
   return (
@@ -23,6 +24,9 @@ const HeroSection = () => {
           backgroundSize: "60px 60px",
         }}
       />
+
+      {/* Floating food particles */}
+      <FloatingParticles count={16} dark />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         {/* Zomato branding */}
@@ -76,18 +80,18 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.45 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
-          <Link
-            to="/results"
+          <a
+            href="#timeline"
             className="group px-8 py-3.5 rounded-full gradient-gold text-zomato-dark font-bold text-base hover:shadow-lg hover:shadow-zomato-gold/30 transition-all duration-300 flex items-center gap-2"
           >
-            View Our Results
-            <ChevronDown className="w-4 h-4 rotate-[-90deg] group-hover:translate-x-1 transition-transform" />
-          </Link>
+            Explore Our Pipeline
+            <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+          </a>
           <a
-            href="#methodology"
+            href="#problem"
             className="px-8 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300"
           >
-            Our Approach
+            The Problem
           </a>
         </motion.div>
 
@@ -103,10 +107,7 @@ const HeroSection = () => {
             { value: `${performanceMetrics.p50Error.reduction}%`, label: "P50 IMPROVED" },
             { value: "15K+", label: "ORDERS SIMULATED" },
           ].map((stat, i) => (
-            <div
-              key={i}
-              className="bg-white/5 backdrop-blur-sm px-8 py-6 text-center"
-            >
+            <div key={i} className="bg-white/5 backdrop-blur-sm px-8 py-6 text-center">
               <div className="text-3xl md:text-4xl font-display font-bold text-white mb-1">
                 {stat.value}
               </div>
