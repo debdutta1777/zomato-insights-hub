@@ -2,7 +2,7 @@
 
 **Team Name:** Syntrix  
 **Project Name:** Zomato KPT Optimizer (SmartDispatch)  
-**Live Demo:** [Add your website URL here]
+**Live Demo:** https://zomato-insights-hub.vercel.app/
 
 ---
 
@@ -150,28 +150,7 @@ The notebook includes:
 
 ---
 
-## 📁 Project Structure
 
-.
-├── index.html # Main website
-├── styles.css # Additional styles
-├── script.js # (inlined in HTML for simplicity)
-├── images/
-│ ├── hero-bg.png
-│ ├── burger.png
-│ ├── dumplings.png
-│ ├── pizza.png
-│ ├── z-img-1.png
-│ ├── z-img-2.png
-│ ├── z-img-3.png
-│ ├── z-img-4.png
-│ ├── z-img-5.png
-│ ├── z-img-6.png
-│ ├── z-img-7.png
-│ ├── z-img-8.png
-│ ├── z-img-9.png
-│ └── ... (other assets)
-└── README.md # This file
 
 
 ---
