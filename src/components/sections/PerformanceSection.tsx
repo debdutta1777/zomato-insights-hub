@@ -17,7 +17,7 @@ const metrics = [
   },
   {
     icon: Target,
-    label: "Avg Wait Time",
+    label: "Avg Wait Time Improved",
     baseline: performanceMetrics.p50Error.baseline,
     optimized: performanceMetrics.p50Error.optimized,
     reduction: performanceMetrics.p50Error.reduction,
