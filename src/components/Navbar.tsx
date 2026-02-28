@@ -21,12 +21,11 @@ const Navbar = () => {
       (entries) => {
         const visible = entries.filter(e => e.isIntersecting);
         if (visible.length > 0) {
-          // Pick the one with highest intersection ratio
           const best = visible.reduce((a, b) => a.intersectionRatio > b.intersectionRatio ? a : b);
           setActiveSection(best.target.id);
         }
       },
-      { threshold: 0.3, rootMargin: "-80px 0px -40% 0px" }
+      { threshold: [0.1, 0.3, 0.5], rootMargin: "-80px 0px -20% 0px" }
     );
 
     sections.forEach(s => {
@@ -36,6 +35,10 @@ const Navbar = () => {
 
     return () => observer.disconnect();
   }, [isHome]);
+
+  const handleNavClick = (id: string) => {
+    setActiveSection(id);
+  };
 
   return (
     <motion.nav
@@ -58,6 +61,7 @@ const Navbar = () => {
                 <a
                   key={s.id}
                   href={`#${s.id}`}
+                  onClick={() => handleNavClick(s.id)}
                   className={`relative text-sm font-medium transition-colors py-1 ${
                     activeSection === s.id ? 'text-white' : 'text-white/50 hover:text-white/80'
                   }`}
