@@ -29,10 +29,10 @@ const ChartCard = ({ title, subtitle, insight, analysis, children, index = 0 }: 
       transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
       className="w-full"
     >
-      <div className="glass-card rounded-2xl p-6 md:p-8 hover:shadow-2xl hover:shadow-zomato-red/10 transition-all duration-500">
+      <div className="rounded-2xl p-6 md:p-8 hover:shadow-2xl hover:shadow-zomato-red/10 transition-all duration-500" style={{ background: "linear-gradient(145deg, #1a1a2e, #16213e)" }}>
         <h3 className="font-display font-bold text-xl text-white mb-1">{title}</h3>
-        {subtitle && <p className="text-white/50 text-sm mb-4">{subtitle}</p>}
-        <div className="w-full h-[350px]">{children}</div>
+        {subtitle && <p className="text-white/60 text-sm mb-4">{subtitle}</p>}
+        <div className="w-full h-[350px] bg-[#0d1117] rounded-xl p-3">{children}</div>
       </div>
       {/* Insight & analysis OUTSIDE the chart card */}
       <div className="mt-4 px-2 space-y-2">
@@ -91,7 +91,7 @@ const SummaryDonut = ({ data, label, value, subtitle, delay }: { data: any[]; la
   </motion.div>
 );
 
-const TOOLTIP_STYLE = { background: "#1C1C1C", border: "1px solid #333", borderRadius: 8 };
+const TOOLTIP_STYLE = { background: "#1C1C1C", border: "1px solid #444", borderRadius: 8, color: "#fff" };
 
 const ChartsSection = () => {
   return (
@@ -247,7 +247,7 @@ const ChartsSection = () => {
                   <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                   <XAxis dataKey="trueKpt" name="True KPT" stroke="#ccc" fontSize={12} type="number" domain={[0, 16]} ticks={[0, 2, 4, 6, 8, 10, 12, 14, 16]} tickFormatter={(v: number) => `${v}`} label={{ value: "True KPT (min)", position: "insideBottom", offset: -15, fill: "#ccc", fontSize: 13, fontWeight: 600 }} />
                   <YAxis dataKey="rlri" name="RLRI" stroke="#ccc" fontSize={12} type="number" domain={[0, 22]} ticks={[0, 5, 10, 15, 20]} tickFormatter={(v: number) => `${v}`} label={{ value: "RLRI (min)", angle: -90, position: "insideLeft", fill: "#ccc", fontSize: 13, fontWeight: 600 }} />
-                  <Tooltip contentStyle={{ ...TOOLTIP_STYLE, fontSize: 13 }} cursor={{ strokeDasharray: "3 3" }} formatter={(value: number) => value.toFixed(1)} />
+                  <Tooltip contentStyle={{ ...TOOLTIP_STYLE, fontSize: 13 }} itemStyle={{ color: "#fff" }} labelStyle={{ color: "#fff" }} cursor={{ strokeDasharray: "3 3" }} formatter={(value: number) => value.toFixed(1)} />
                   <ReferenceLine segment={[{ x: 0, y: 0 }, { x: 16, y: 16 }]} stroke={COLORS.gold} strokeDasharray="5 5" />
                   <Scatter data={rlriVsKpt} name="Orders">
                     {rlriVsKpt.map((entry, i) => (
