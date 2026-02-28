@@ -5,7 +5,7 @@ import heroFoodBg from "@/assets/hero-food-bg.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 pb-24">
       {/* Food background image */}
       <div className="absolute inset-0">
         <img src={heroFoodBg} alt="" className="w-full h-full object-cover" />
