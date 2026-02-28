@@ -243,12 +243,12 @@ const ChartsSection = () => {
           <div className="max-w-xl mx-auto w-full">
             <ChartCard title="RLRI vs True KPT" subtitle="Predicted vs actual kitchen prep times" insight="Strong positive correlation validates RLRI as a reliable signal" analysis="Points cluster tightly around the diagonal (y=x), confirming that RLRI predictions closely match true kitchen prep times. Green points (error <2 min) dominate, validating the model's accuracy." index={8}>
               <ResponsiveContainer width="100%" height={280}>
-                <ScatterChart>
+                <ScatterChart margin={{ bottom: 20, left: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="trueKpt" name="True KPT" stroke="#888" fontSize={12} label={{ value: "True KPT (min)", position: "bottom", fill: "#888" }} />
-                  <YAxis dataKey="rlri" name="RLRI" stroke="#888" fontSize={12} label={{ value: "RLRI (min)", angle: -90, position: "insideLeft", fill: "#888" }} />
+                  <XAxis dataKey="trueKpt" name="True KPT" stroke="#aaa" fontSize={11} type="number" domain={[0, 16]} tickCount={9} label={{ value: "True KPT (min)", position: "insideBottom", offset: -10, fill: "#aaa", fontSize: 12 }} />
+                  <YAxis dataKey="rlri" name="RLRI" stroke="#aaa" fontSize={11} type="number" domain={[0, 22]} tickCount={6} label={{ value: "RLRI (min)", angle: -90, position: "insideLeft", fill: "#aaa", fontSize: 12 }} />
                   <Tooltip contentStyle={TOOLTIP_STYLE} cursor={{ strokeDasharray: "3 3" }} />
-                  <ReferenceLine segment={[{ x: 0, y: 0 }, { x: 15, y: 15 }]} stroke={COLORS.gold} strokeDasharray="5 5" />
+                  <ReferenceLine segment={[{ x: 0, y: 0 }, { x: 16, y: 16 }]} stroke={COLORS.gold} strokeDasharray="5 5" />
                   <Scatter data={rlriVsKpt} name="Orders">
                     {rlriVsKpt.map((entry, i) => (
                       <Cell key={i} fill={entry.error < 2 ? COLORS.green : entry.error < 4 ? COLORS.gold : COLORS.red} opacity={0.7} />
