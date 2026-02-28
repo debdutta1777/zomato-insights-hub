@@ -14,7 +14,7 @@ const TakeawaysSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="relative py-28 px-6 section-dark-glow overflow-hidden" ref={ref}>
+    <section id="features" className="relative py-28 px-6 section-dark-glow overflow-hidden" ref={ref}>
       <FloatingParticles count={12} dark />
 
       <div className="relative z-10 max-w-4xl mx-auto">

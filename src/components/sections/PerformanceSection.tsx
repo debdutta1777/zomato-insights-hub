@@ -1,20 +1,11 @@
 import { useCountUp } from "@/hooks/useCountUp";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { performanceMetrics } from "@/data/chartData";
-import { TrendingDown, Target, Zap } from "lucide-react";
+import { Target, Zap } from "lucide-react";
 import FloatingParticles from "@/components/FloatingParticles";
 import { motion } from "framer-motion";
 
 const metrics = [
-  {
-    icon: TrendingDown,
-    label: "Avg Wait Time",
-    baseline: performanceMetrics.avgWait.baseline,
-    optimized: performanceMetrics.avgWait.optimized,
-    reduction: performanceMetrics.avgWait.reduction,
-    unit: "min",
-    color: "from-zomato-red/40 to-zomato-red/10",
-  },
   {
     icon: Target,
     label: "Avg Wait Time Improved",
@@ -26,7 +17,7 @@ const metrics = [
   },
   {
     icon: Zap,
-    label: "Max Wait Time",
+    label: "Max Wait Time Improved",
     baseline: performanceMetrics.p90Error.baseline,
     optimized: performanceMetrics.p90Error.optimized,
     reduction: performanceMetrics.p90Error.reduction,
@@ -141,7 +132,7 @@ const PerformanceSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {metrics.map((metric, i) => (
             <MetricCard key={metric.label} metric={metric} delay={i * 150} index={i} />
           ))}
