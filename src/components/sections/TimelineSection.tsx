@@ -57,14 +57,16 @@ const TimelineSection = () => {
               strokeDasharray="8 4"
             />
             {/* Bike rider emoji along path */}
-            <text fontSize="20" dominantBaseline="central" textAnchor="middle">
-              🏍️
+            <g>
               <animateMotion
                 dur="6s"
                 repeatCount="indefinite"
                 path="M40 0 C60 50, 20 100, 40 150 C60 200, 20 250, 40 300 C60 350, 20 400, 40 450 C60 500, 20 550, 40 600 C60 650, 20 700, 40 750 C60 800, 20 850, 40 900 C60 950, 40 1000, 40 1000"
               />
-            </text>
+              <foreignObject width="36" height="36" x="-18" y="-18">
+                <div style={{ fontSize: '28px', lineHeight: '36px', textAlign: 'center' }}>🏍️</div>
+              </foreignObject>
+            </g>
           </svg>
 
           {steps.map((step, i) => {
