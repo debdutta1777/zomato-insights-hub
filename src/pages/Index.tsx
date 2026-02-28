@@ -1,17 +1,19 @@
+import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
-import PerformanceSection from "@/components/sections/PerformanceSection";
-import ChartsSection from "@/components/sections/ChartsSection";
+import ProblemSection from "@/components/sections/ProblemSection";
 import MethodologySection from "@/components/sections/MethodologySection";
+import TimelineSection from "@/components/sections/TimelineSection";
 import TakeawaysSection from "@/components/sections/TakeawaysSection";
 import FooterSection from "@/components/sections/FooterSection";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
+      <Navbar />
       <HeroSection />
-      <PerformanceSection />
-      <ChartsSection />
+      <ProblemSection />
       <MethodologySection />
+      <TimelineSection />
       <TakeawaysSection />
       <FooterSection />
     </div>
