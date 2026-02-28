@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Github, ExternalLink } from "lucide-react";
 import { performanceMetrics } from "@/data/chartData";
 import heroFoodBg from "@/assets/hero-food-bg.jpg";
 
@@ -42,12 +42,13 @@ const HeroSection = () => {
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.45 }} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <a href="#timeline" className="group px-8 py-3.5 rounded-full gradient-gold text-zomato-dark font-bold text-base hover:shadow-lg hover:shadow-zomato-gold/30 transition-all duration-300 flex items-center gap-2">
-            Explore Our Pipeline
-            <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+          <a href="https://github.com/YOUR_REPO_LINK" target="_blank" rel="noopener noreferrer" className="group px-8 py-3.5 rounded-full gradient-gold text-zomato-dark font-bold text-base hover:shadow-lg hover:shadow-zomato-gold/30 transition-all duration-300 flex items-center gap-2">
+            <Github className="w-4 h-4" />
+            Our GitHub
           </a>
-          <a href="#problem" className="px-8 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300">
-            The Problem
+          <a href="https://colab.research.google.com/drive/1zfzfIIslQnuB0_TxdpjageekwzUO26TO?usp=sharing" target="_blank" rel="noopener noreferrer" className="px-8 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all duration-300 flex items-center gap-2">
+            <ExternalLink className="w-4 h-4" />
+            Our Solution
           </a>
         </motion.div>
 
