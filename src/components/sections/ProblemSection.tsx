@@ -26,7 +26,7 @@ const ProblemSection = () => {
     {
       icon: AlertTriangle,
       title: "Noisy KPT Estimates",
-      desc: "Current predictions have high variance — P90 error of 10.45 minutes makes dispatch unreliable.",
+      desc: "Current predictions have high variance — maximum waiting time error of 10.45 minutes makes dispatch unreliable.",
       gradient: "from-[hsl(152,60%,45%)] to-[hsl(152,50%,35%)]",
       glowColor: "hsl(152, 60%, 45%)",
       iconBg: "bg-zomato-green/15",
@@ -35,7 +35,7 @@ const ProblemSection = () => {
 
   return (
     <section id="problem" className="relative py-28 px-6 section-warm overflow-hidden" ref={ref}>
-      <FloatingParticles count={8} dark={false} />
+      <FloatingParticles count={14} dark={false} />
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

@@ -11,7 +11,7 @@ const Results = () => {
       <div className="pt-16">
         {/* Results hero */}
         <section className="relative py-20 px-6 section-dark overflow-hidden">
-          <FloatingParticles count={8} dark />
+          <FloatingParticles count={12} dark />
           {/* Radial glow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[600px] h-[400px] opacity-15" style={{ background: 'radial-gradient(ellipse, hsl(355, 78%, 56%), transparent 70%)' }} />

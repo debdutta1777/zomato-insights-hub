@@ -12,7 +12,7 @@ const steps = [
   { emoji: "🌮", title: "Error Correction", desc: "Second model predicts error using RLRI & lag features.", color: "text-yellow-500", ringColor: "border-yellow-500/50", pillBg: "bg-yellow-500/10 text-yellow-500" },
   { emoji: "🍰", title: "Dispatch Simulation", desc: "Rider sent directly when food is ready. Zero wait.", color: "text-zomato-red", ringColor: "border-zomato-red/50", pillBg: "bg-zomato-red/10 text-zomato-red" },
   { emoji: "🍣", title: "Wait Reduction", desc: "Average wait drops from 6.28 to 1.30 minutes.", color: "text-purple-500", ringColor: "border-purple-500/50", pillBg: "bg-purple-500/10 text-purple-500" },
-  { emoji: "🎯", title: "Final Impact", desc: "P50 error drops 45.5%. Production model ready.", color: "text-teal-500", ringColor: "border-teal-500/50", pillBg: "bg-teal-500/10 text-teal-500" },
+  { emoji: "🎯", title: "Final Impact", desc: "Average wait time error drops 45.5%. Production model ready.", color: "text-teal-500", ringColor: "border-teal-500/50", pillBg: "bg-teal-500/10 text-teal-500" },
 ];
 
 const TimelineSection = () => {
@@ -20,7 +20,7 @@ const TimelineSection = () => {
 
   return (
     <section id="timeline" className="relative pt-20 pb-8 px-6 section-warm-gold overflow-hidden" ref={ref}>
-      <FloatingParticles count={8} dark={false} />
+      <FloatingParticles count={15} dark={false} />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <div className="text-center mb-16">

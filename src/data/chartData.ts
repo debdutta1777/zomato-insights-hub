@@ -42,8 +42,8 @@ export const hourlyWaitTime = [
 
 // ETA Error Percentiles
 export const etaErrorPercentiles = [
-  { metric: "P50", baseline: 3.2, optimized: 0.8 },
-  { metric: "P90", baseline: 8.5, optimized: 2.1 },
+  { metric: "Avg Wait", baseline: 3.2, optimized: 0.8 },
+  { metric: "Max Wait", baseline: 8.5, optimized: 2.1 },
 ];
 
 // CDF of ETA Error

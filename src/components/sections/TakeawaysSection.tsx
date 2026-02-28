@@ -15,7 +15,7 @@ const TakeawaysSection = () => {
 
   return (
     <section className="relative py-28 px-6 section-dark-glow overflow-hidden" ref={ref}>
-      <FloatingParticles count={6} dark />
+      <FloatingParticles count={12} dark />
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
